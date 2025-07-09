@@ -46,13 +46,18 @@ const state = reactive<Schema>({
 const toast = useToast()
 
 async function onSubmit({ data: { email } }: FormSubmitEvent<Schema>) {
-	const { error } = await supabase.auth.signInWithOtp({ email, options: {
-		emailRedirectTo: 'http://localhost:3000/confirm',
-	} })
+	const { error } = await supabase.auth.signInWithOtp({
+		email,
+		options: {
+			emailRedirectTo: window.location.origin + '/confirm',
+		}
+	})
+
 	if (error) {
 		toast.add({ description: error.message, color: 'error' })
 		return
 	}
+
 	toast.add({ description: `Ссылка для входа отправлена на ${email}`, color: 'success' })
 	state.email = ''
 }

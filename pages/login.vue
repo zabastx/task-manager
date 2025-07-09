@@ -27,7 +27,7 @@ definePageMeta({
 const supabase = useSupabaseClient()
 
 async function githubSignIn() {
-	const { error } = await supabase.auth.signInWithOAuth({ provider: 'github', options: { redirectTo: 'http://localhost:3000/confirm' } })
+	const { error } = await supabase.auth.signInWithOAuth({ provider: 'github', options: { redirectTo: window.location.origin + '/confirm' } })
 	if (error) console.log(error)
 }
 </script>
