@@ -3,6 +3,7 @@
 		as="header"
 		class="flex py-2.5 items-center gap-2.5 justify-end"
 	>
+		<AppLogo class="mr-auto" />
 		<UAvatar
 			v-if="user"
 			:src="user.user_metadata.avatar_url"
@@ -15,6 +16,7 @@
 			label="Выйти"
 			variant="ghost"
 			color="neutral"
+			loading-auto
 			@click="signOut"
 		/>
 	</UContainer>
