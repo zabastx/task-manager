@@ -9,5 +9,7 @@ export default withNuxt({
 		'@stylistic/indent-binary-ops': ['error', 'tab'],
 		'@stylistic/no-tabs': 'off',
 		'vue/html-indent': 'off'
-	}
+	},
+}).append({
+	ignores: ['./database.types.ts']
 })
