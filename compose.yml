@@ -1,34 +1,23 @@
 services:
   nuxt:
-    container_name: nuxt-app
+    container_name: nuxt
     build: .
-    restart: unless-stopped
-    ports:
-      - 3000:3000
 
   nginx:
     container_name: nginx
-    restart: unless-stopped
-    image: nginx
+    image: nginx:latest
     ports:
       - 80:80
       - 443:443
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
   
   certbot:
-    image: certbot/certbot:latest
-    volumes:
-      - certs:/etc/letsencrypt
-      - certbot-www:/var/www/certbot
-    entrypoint: >
-      sh -c "trap exit TERM; 
-             while :; do 
-               certbot renew --webroot -w /var/www/certbot && nginx -s reload; 
-               sleep 12h & wait $${!}; 
-             done"
-    restart: unless-stopped
-
-volumes:
-  certs:
-  certbot-www:
+    image: certbot/certbot
+    container_name: certbot
+    volumes: 
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    command: certonly --webroot -w /var/www/certbot --keep-until-expiring --email zabastx@gmail.com -d tasks.zabastx.ru --agree-tos

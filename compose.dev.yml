@@ -1,0 +1,14 @@
+services:
+  nuxt:
+    container_name: nuxt
+    build: .
+
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/nginx.dev.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - nuxt

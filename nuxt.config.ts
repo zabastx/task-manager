@@ -48,6 +48,10 @@ export default defineNuxtConfig({
 		experimental: {
 			websocket: true,
 		},
+		compressPublicAssets: {
+			brotli: true,
+			gzip: true
+		}
 	},
 	eslint: {
 		config: {
