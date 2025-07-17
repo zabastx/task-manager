@@ -24,10 +24,10 @@ jobs:
           username: ${{ secrets.EVO_CR_LOGIN }}
           password: ${{ secrets.EVO_CR_PWD }}
           
-      - name: NodeJS - Build and push docker image to Evolution Aritfact Registry
+      - name: Nuxt App
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ${{ env.CR_URI }}/evo-restapinodejs:${{ github.sha }}
+          tags: ${{ env.CR_URI }}/task-manager:${{ github.sha }}
           file: ./Dockerfile
           context: ./
