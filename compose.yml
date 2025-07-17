@@ -2,6 +2,7 @@ services:
   nuxt:
     container_name: nuxt
     build: .
+    restart: unless-stopped
 
   nginx:
     container_name: nginx
@@ -15,6 +16,7 @@ services:
       - ./certbot/www:/var/www/certbot
     depends_on:
       - nuxt
+    restart: unless-stopped
   
   certbot:
     image: certbot/certbot
