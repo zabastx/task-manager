@@ -1,6 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-	modules: ['@nuxt/test-utils', '@nuxt/ui', '@nuxtjs/supabase', '@nuxt/eslint'],
+	modules: [
+		'@nuxt/test-utils',
+		'@nuxt/ui',
+		'@nuxtjs/supabase',
+		'@nuxt/eslint'
+	],
 	devtools: { enabled: true },
 	app: {
 		head: {

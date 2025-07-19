@@ -8,8 +8,9 @@ export default withNuxt({
 		'@stylistic/indent': ['error', 'tab'],
 		'@stylistic/indent-binary-ops': ['error', 'tab'],
 		'@stylistic/no-tabs': 'off',
-		'vue/html-indent': 'off'
+		'vue/html-indent': 'off',
+		'vue/multi-word-component-names': 'off'
 	},
 }).append({
-	ignores: ['./database.types.ts']
+	ignores: ['./server/types/database.ts']
 })
