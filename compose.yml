@@ -1,8 +1,15 @@
+x-registries:
+  private:
+    auth:
+      username: ${EVO_CR_LOGIN}
+      password: ${EVO_CR_PWD}
+
 services:
   nuxt:
     container_name: nuxt
-    build: .
     restart: unless-stopped
+    image: zabastx.cr.cloud.ru/tasks:latest
+    x-registries: private
 
   nginx:
     container_name: nginx
