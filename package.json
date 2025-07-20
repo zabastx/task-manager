@@ -1,37 +1,42 @@
 {
-	"name": "task-manager",
-	"author": {
-		"email": "zabastx@gmail.com",
-		"name": "Danil Popov",
-		"url": "https://github.com/zabastx"
-	},
-	"dependencies": {
-		"@nuxt/eslint": "^1.2.0",
-		"@nuxt/test-utils": "3.19.2",
-		"@nuxt/ui": "3.2.0",
-		"@nuxtjs/supabase": "1.5.3",
-		"eslint": "^9.31.0",
-		"nuxt": "^4.0.0",
-		"typescript": "^5.8.3",
-		"vue": "^3.5.17",
-		"vue-router": "^4.5.1"
-	},
-	"license": "MIT",
-	"private": true,
-	"scripts": {
-		"build": "nuxt build",
-		"dev": "nuxt dev",
-		"generate": "nuxt generate",
-		"preview": "nuxt preview",
-		"postinstall": "nuxt prepare",
-		"lint": "eslint .",
-		"lint:fix": "eslint . --fix",
-		"db:gen-types": "supabase gen types typescript --project-id ivvgubuuudmuupthmebs --schema public > ./server/types/database.ts"
-	},
-	"type": "module",
-	"devDependencies": {
-		"@iconify-json/mdi": "^1.2.3",
-		"supabase": "^2.30.4"
-	},
-	"version": "0.1.0"
+  "name": "task-manager",
+  "author": {
+    "email": "zabastx@gmail.com",
+    "name": "Danil Popov",
+    "url": "https://github.com/zabastx"
+  },
+  "dependencies": {
+    "@nuxt/eslint": "^1.2.0",
+    "@nuxt/test-utils": "3.19.2",
+    "@nuxt/ui": "3.2.0",
+    "@nuxtjs/supabase": "1.5.3",
+    "eslint": "^9.31.0",
+    "nuxt": "^4.0.0",
+    "typescript": "^5.8.3",
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1"
+  },
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "db:gen-types": "supabase gen types typescript --project-id ivvgubuuudmuupthmebs --schema public > ./server/types/database.ts"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@iconify-json/mdi": "^1.2.3",
+    "supabase": "^2.30.4"
+  },
+  "version": "0.1.0",
+  "trustedDependencies": [
+    "@parcel/watcher",
+    "@tailwindcss/oxide",
+    "unrs-resolver"
+  ]
 }
