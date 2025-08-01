@@ -7,7 +7,6 @@ export default defineNuxtConfig({
 		'@nuxt/eslint',
 		'@nuxtjs/seo'
 	],
-	devtools: { enabled: true },
 	app: {
 		head: {
 			title: 'Task Manager',
@@ -76,7 +75,8 @@ export default defineNuxtConfig({
 	},
 	robots: {
 		blockAiBots: true,
-		blockNonSeoBots: true
+		blockNonSeoBots: true,
+		robotsTxt: true
 	},
 	supabase: {
 		redirect: false,
