@@ -34,7 +34,7 @@
     "@iconify-json/mdi": "^1.2.3",
     "supabase": "^2.31.8"
   },
-  "version": "0.2.0",
+  "version": "0.2.1",
   "trustedDependencies": [
     "@parcel/watcher",
     "@tailwindcss/oxide",
