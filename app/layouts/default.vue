@@ -1,9 +1,12 @@
 <template>
 	<div class="flex flex-col h-full">
 		<AppHeader />
-		<main class="grow">
+		<UContainer
+			class="grow overflow-auto py-2.5"
+			as="main"
+		>
 			<slot />
-		</main>
+		</UContainer>
 		<AppFooter />
 	</div>
 </template>

@@ -4,7 +4,8 @@ export default defineNuxtConfig({
 		'@nuxt/test-utils',
 		'@nuxt/ui',
 		'@nuxtjs/supabase',
-		'@nuxt/eslint'
+		'@nuxt/eslint',
+		'@nuxtjs/seo'
 	],
 	devtools: { enabled: true },
 	app: {
@@ -45,6 +46,9 @@ export default defineNuxtConfig({
 		},
 	},
 	css: ['~/assets/css/main.css'],
+	site: {
+		indexable: false,
+	},
 	build: {
 		analyze: true,
 	},
@@ -53,6 +57,7 @@ export default defineNuxtConfig({
 		preset: 'bun',
 		experimental: {
 			websocket: true,
+			openAPI: true
 		},
 		compressPublicAssets: {
 			brotli: true,
@@ -67,7 +72,11 @@ export default defineNuxtConfig({
 		},
 	},
 	icon: {
-		customCollections: [{ dir: './assets/icon', prefix: 'custom' }],
+		customCollections: [{ dir: './app/assets/icon', prefix: 'custom' }],
+	},
+	robots: {
+		blockAiBots: true,
+		blockNonSeoBots: true
 	},
 	supabase: {
 		redirect: false,

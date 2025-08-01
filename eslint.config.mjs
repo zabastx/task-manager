@@ -8,7 +8,7 @@ export default withNuxt({
 		'@stylistic/indent': ['error', 'tab'],
 		'@stylistic/indent-binary-ops': ['error', 'tab'],
 		'@stylistic/no-tabs': 'off',
-		'vue/html-indent': 'off',
+		'@stylistic/no-trailing-spaces': 'off',
 		'vue/multi-word-component-names': 'off'
 	},
 }).append({

@@ -20,41 +20,90 @@ export type Database = {
           created_at: string
           id: string
           title: string
-          updated_at: string | null
+          updated_at: string
         }
         Insert: {
-          author?: string
+          author: string
           created_at?: string
           id?: string
-          title?: string
-          updated_at?: string | null
+          title: string
+          updated_at?: string
         }
         Update: {
           author?: string
           created_at?: string
           id?: string
           title?: string
-          updated_at?: string | null
+          updated_at?: string
         }
         Relationships: []
       }
-      tasks: {
+      cards: {
         Row: {
           created_at: string
-          id: number
-          title: string
+          done: boolean
+          id: string
+          list: string | null
+          updated_at: string
         }
         Insert: {
           created_at?: string
-          id?: number
-          title?: string
+          done?: boolean
+          id?: string
+          list?: string | null
+          updated_at?: string
         }
         Update: {
           created_at?: string
-          id?: number
-          title?: string
+          done?: boolean
+          id?: string
+          list?: string | null
+          updated_at?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "cards_list_fkey"
+            columns: ["list"]
+            isOneToOne: false
+            referencedRelation: "lists"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      lists: {
+        Row: {
+          board: string | null
+          cards: string[] | null
+          created_at: string
+          id: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          board?: string | null
+          cards?: string[] | null
+          created_at?: string
+          id?: string
+          title?: string
+          updated_at?: string
+        }
+        Update: {
+          board?: string | null
+          cards?: string[] | null
+          created_at?: string
+          id?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lists_board_fkey"
+            columns: ["board"]
+            isOneToOne: false
+            referencedRelation: "boards"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
