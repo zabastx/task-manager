@@ -10,9 +10,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-      SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
     steps:
       - name: Checkout to the branch
         uses: actions/checkout@v4
@@ -39,6 +36,9 @@ jobs:
           tags: ${{ env.CR_URI }}/tasks:latest
           file: ./Dockerfile
           context: ./
+          build-args: |
+            SUPABASE_URL=${{ secrets.SUPABASE_URL }}
+            SUPABASE_KEY=${{ secrets.SUPABASE_KEY }}
 
       - name: Pull & Run Compose on VPS
         run: |
@@ -46,4 +46,4 @@ jobs:
             ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} \
             "cd ${{ secrets.TARGET_DIR }} \
             && docker compose pull \
-            && docker compose up --build -d --remove-orphans"
+            && docker compose up -d --remove-orphans"

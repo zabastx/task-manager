@@ -1,5 +1,11 @@
 FROM oven/bun:latest AS builder
 
+ARG SUPABASE_URL
+ARG SUPABASE_KEY
+
+ENV SUPABASE_URL=$SUPABASE_URL
+ENV SUPABASE_KEY=$SUPABASE_KEY
+
 # Set working directory
 WORKDIR /app
 
